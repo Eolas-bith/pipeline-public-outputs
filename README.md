@@ -135,3 +135,5 @@ All outputs carry TLP markings and explicit confidence levels (HIGH / MODERATE /
 **BPFDoor / GTPdoor** — end-to-end workflow for ELF backdoor variants targeting telecom infrastructure: sample intake → TLSH clustering → 8-phase static analysis → variant diff → IOC extraction → MISP push → YARA update.
 
 Families covered: BPFDoor (11+ variants), GTPdoor, BPF-Backdoor, PwnKit (CVE-2021-4034). Artefacts include Suricata rules (strict + production variants), YARA signatures, EDR/SIEM deployment packages, and a MISP event template.
+
+https://eolas-bith.github.io/pipeline-public-outputs/gpt-proxy-backdoor_report.html
