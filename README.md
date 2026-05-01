@@ -1,3 +1,4 @@
-<img width="1536" height="1024" alt="ChatGPT Image May 1, 2026, 07_44_41 PM" src="https://github.com/user-attachments/assets/fedda94e-e1fb-4f5d-aaf4-c12ce0eee3c2" />
+<img width="1536" height="1024" alt="ChatGPT Image May 1, 2026, 08_00_57 PM" src="https://github.com/user-attachments/assets/f6d58439-6d04-4a69-a46c-c50226ba87c4" />
+
 # pipeline-public-outputs
 Repository for the pipeline public outputs and reports
