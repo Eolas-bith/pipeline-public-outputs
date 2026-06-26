@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAGE TITLE — Eolas</title>
+<!-- The stylesheet @imports its own fonts (Orbitron + Share Tech Mono). -->
+<link rel="stylesheet" href="assets/eolas-cybergoth.css">
+</head>
+<body>
+
+<!-- ============================ HERO ============================ -->
+<header>
+  <div class="header-inner">
+    <!-- boot prompt: use .err for a coloured token, .cursor for the blinking block -->
+    <div class="boot">root@eolas:~$ ./run --target page <span class="err">[OK]</span> ready<span class="cursor">&nbsp;</span></div>
+    <!-- terminal eyebrow: lowercase, mono, // path style -->
+    <span class="eyebrow">// section :: subsection</span>
+    <!-- wordmark: add class "glitch" + matching data-text for the chromatic-split flicker -->
+    <h1 class="title glitch" data-text="EOLAS//PAGE">EOLAS//PAGE</h1>
+    <p class="subtitle">One-line description of what this page is.</p>
+    <div class="meta-bar">
+      <span class="pill green">● Active</span>
+      <span class="pill">tag</span>
+    </div>
+    <!-- optional stat row -->
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">00</div><div class="stat-label">Metric</div></div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- ===================== A SECTION ===================== -->
+  <section id="example">
+    <div class="section-head">
+      <!-- h2 auto-gets a "//" prefix; keep titles UPPERCASE-friendly -->
+      <h2>Section Title</h2>
+      <p>Section intro — state the purpose, not just the contents.</p>
+    </div>
+
+    <!-- CARD GRID: each .card auto-numbers as [01], [02]… within its grid.
+         Do NOT use emoji icons — the .icon span is hidden by the theme.
+         Pattern: what it is + a bolded Purpose:/Why it helps: clause. -->
+    <div class="card-grid">
+      <div class="card">
+        <h3>Capability Name</h3>
+        <p>What it is. <strong>Purpose:</strong> the value / why it matters.</p>
+        <div class="tags"><span class="tag a">tag-a</span><span class="tag b">tag-b</span><span class="tag c">tag-c</span><span class="tag w">tag-w</span></div>
+      </div>
+    </div>
+
+    <!-- FLOW: each .flow-box auto-numbers 01,02,03…; .flow-arrow between boxes -->
+    <div class="flow">
+      <div class="flow-box">Step A<br><small>detail</small></div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box">Step B<br><small>detail</small></div>
+    </div>
+
+    <!-- CALLOUT: oxblood left border, for summary blocks -->
+    <div class="callout">
+      <h3>Callout heading.</h3>
+      <p>Summary paragraph.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Eolas — Page Title · <span class="tlp">TLP:CLEAR</span> · methodology &amp; functionality only — no operational data
+</footer>
+</body>
+</html>
