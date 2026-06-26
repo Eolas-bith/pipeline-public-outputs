@@ -4,6 +4,8 @@
 
 Structured methodology for threat intelligence, malware analysis, OSINT, and narrative intelligence work. Skills are encoded as self-contained files that an analyst or LLM can load as context and execute step-by-step. All core pipelines run on open-source tooling.
 
+**▶ [Capabilities Overview (graphical)](https://eolas-bith.github.io/pipeline-public-outputs/eolas-vault_capabilities.html)** — a visual tour of everything the knowledge base does.
+
 ---
 
 ## Malware Analysis
