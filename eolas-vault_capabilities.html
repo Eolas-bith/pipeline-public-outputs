@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Eolas Vault — Threat Intelligence & Analysis Knowledge Base</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-primary: #0d0f12;
@@ -169,13 +172,190 @@
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .flow-arrow { display: none; }
   }
+
+  /* ============================================================
+     OLD-SCHOOL CYBER-GOTH // CRT TERMINAL — dark, desaturated, no glow
+     ============================================================ */
+  :root {
+    --bg-primary: #08080b;
+    --bg-secondary: #0e0e12;
+    --bg-tertiary: #131318;
+    --text-primary: #c7c4cd;     /* cool bone */
+    --text-secondary: #79778a;   /* ash */
+    --accent: #8ea36b;           /* dim phosphor olive */
+    --accent-2: #6f93a8;         /* dusty steel-blue */
+    --accent-warn: #b08a4a;      /* dim amber */
+    --accent-crit: #9c3b46;      /* oxblood */
+    --accent-purple: #877a98;    /* muted mauve */
+    --accent-blood: #9c3b46;     /* oxblood (goth) */
+    --border-color: #24232c;
+    --mono: 'Share Tech Mono', ui-monospace, 'Courier New', monospace;
+    --display: 'Orbitron', sans-serif;
+  }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    background-image:
+      linear-gradient(rgba(120,120,135,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,120,135,0.025) 1px, transparent 1px);
+    background-size: 46px 46px;
+    background-attachment: fixed;
+  }
+  /* CRT scanlines + heavy vignette, no glow */
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 9999;
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,0) 0, rgba(0,0,0,0) 2px, rgba(0,0,0,0.22) 3px, rgba(0,0,0,0) 4px),
+      radial-gradient(130% 90% at 50% 0%, transparent 52%, rgba(0,0,0,0.7) 100%);
+    mix-blend-mode: multiply;
+  }
+  a { color: var(--accent-2); }
+
+  header {
+    border-bottom: 1px solid var(--border-color);
+    background:
+      radial-gradient(900px 460px at 12% -14%, rgba(142,163,107,0.07), transparent 60%),
+      radial-gradient(760px 400px at 92% -10%, rgba(156,59,70,0.06), transparent 58%),
+      linear-gradient(180deg, #0b0b0f 0%, var(--bg-primary) 100%);
+  }
+  .boot {
+    font-family: var(--mono); font-size: 0.9rem; color: var(--accent);
+    letter-spacing: 0.04em; margin-bottom: 1.1rem; opacity: 0.85;
+  }
+  .boot .err { color: var(--accent-blood); }
+  .cursor { display: inline-block; width: 0.55ch; background: var(--accent); color: var(--accent);
+    animation: blink 1.05s steps(1) infinite; }
+  @keyframes blink { 0%,49% { opacity: 0.9; } 50%,100% { opacity: 0; } }
+
+  .eyebrow {
+    font-family: var(--mono); color: var(--text-secondary);
+    border: 1px solid var(--border-color); border-radius: 0;
+    text-transform: lowercase; letter-spacing: 0.16em; font-weight: 400;
+    background: rgba(255,255,255,0.012);
+  }
+  .title {
+    font-family: var(--display); font-weight: 800;
+    letter-spacing: 0.04em; text-transform: uppercase; font-size: 3.4rem;
+    background: linear-gradient(180deg, #cfccd6 0%, #9aa07f 120%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  /* subtle desaturated chromatic-split, no bloom */
+  .glitch { position: relative; }
+  .glitch::before, .glitch::after {
+    content: attr(data-text); position: absolute; left: 0; top: 0; width: 100%;
+    font-family: var(--display); font-weight: 800; text-transform: uppercase;
+    letter-spacing: 0.04em; pointer-events: none; opacity: 0;
+  }
+  .glitch::before { color: var(--accent-blood); animation: glitch-a 5.5s infinite; }
+  .glitch::after  { color: var(--accent-2); animation: glitch-b 5.5s infinite; }
+  @keyframes glitch-a {
+    0%,92%,100% { opacity: 0; transform: translate(0,0); clip-path: inset(0 0 0 0); }
+    93% { opacity: 0.5; transform: translate(-2px,0); clip-path: inset(12% 0 58% 0); }
+    96% { opacity: 0.5; transform: translate(2px,0); clip-path: inset(64% 0 12% 0); }
+  }
+  @keyframes glitch-b {
+    0%,90%,100% { opacity: 0; transform: translate(0,0); clip-path: inset(0 0 0 0); }
+    91% { opacity: 0.45; transform: translate(2px,0); clip-path: inset(46% 0 32% 0); }
+    95% { opacity: 0.45; transform: translate(-2px,0); clip-path: inset(24% 0 52% 0); }
+  }
+  .subtitle { color: #a09daf; }
+
+  .pill {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em;
+    background: rgba(255,255,255,0.012); border: 1px solid var(--border-color); border-radius: 0;
+    color: var(--text-secondary);
+  }
+  .pill.green { color: var(--accent); border-color: rgba(142,163,107,0.4); }
+
+  .stat-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color); border-radius: 0; position: relative;
+  }
+  .stat-card::before {
+    content: ""; position: absolute; top: 5px; left: 5px; width: 8px; height: 8px;
+    border-top: 1px solid var(--border-color); border-left: 1px solid var(--border-color);
+  }
+  .stat-card:hover { border-color: var(--accent); transform: none; }
+  .stat-number { font-family: var(--display); font-weight: 700; color: var(--text-primary); }
+  .stat-label { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); }
+
+  .section-head h2 {
+    font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    font-size: 1.4rem; color: var(--text-primary);
+  }
+  .section-head h2::before {
+    content: "//"; color: var(--accent); font-family: var(--mono); margin-right: 0.35rem; font-weight: 400;
+  }
+  .section-head .bar { display: none; }
+  .section-head p { font-size: 0.95rem; }
+
+  /* numbered capability slots, no emoji, no glow */
+  .card-grid { counter-reset: slot; }
+  .card .icon, .flow-box .fi, .domain-item .di { display: none; }
+  .card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color); border-radius: 0;
+  }
+  .card h3 {
+    font-family: var(--display); font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em;
+    color: var(--text-primary); display: flex; align-items: baseline; gap: 0.55rem;
+  }
+  .card h3::before {
+    counter-increment: slot; content: "[" counter(slot, decimal-leading-zero) "]";
+    font-family: var(--mono); font-size: 0.82rem; color: var(--accent); flex-shrink: 0;
+  }
+  .card::before { background: var(--accent); height: 1px; box-shadow: none; opacity: 0; }
+  .card::after {
+    content: ""; position: absolute; bottom: 7px; right: 7px; width: 9px; height: 9px;
+    border-bottom: 1px solid var(--accent); border-right: 1px solid var(--accent);
+    opacity: 0; transition: opacity .15s ease;
+  }
+  .card:hover { transform: none; border-color: var(--accent); box-shadow: none; }
+  .card:hover::before { opacity: 0.8; }
+  .card:hover::after { opacity: 0.6; }
+  .card p strong { color: var(--accent-blood); font-family: var(--mono); letter-spacing: 0.02em; text-transform: uppercase; font-size: 0.86em; }
+
+  .tag { font-family: var(--mono); text-transform: uppercase; border-radius: 0; letter-spacing: 0.05em; font-weight: 400; }
+  .tag.a { color: var(--accent); border-color: rgba(142,163,107,0.35); }
+  .tag.b { color: var(--accent-2); border-color: rgba(111,147,168,0.35); }
+  .tag.c { color: var(--accent-purple); border-color: rgba(135,122,152,0.4); }
+  .tag.w { color: var(--accent-warn); border-color: rgba(176,138,74,0.4); }
+
+  .flow { counter-reset: step; }
+  .flow-box { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 0; font-family: var(--mono); }
+  .flow-box::before {
+    counter-increment: step; content: counter(step, decimal-leading-zero);
+    display: block; font-family: var(--display); font-weight: 700; color: var(--accent);
+    font-size: 1.05rem; margin-bottom: 0.35rem;
+  }
+  .flow-arrow { color: var(--accent); opacity: 0.7; }
+
+  .domain-item { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 0; }
+
+  .callout {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color); border-left: 2px solid var(--accent-blood);
+    border-radius: 0; box-shadow: none;
+  }
+  .callout h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-primary); }
+
+  footer {
+    border-top: 1px solid var(--border-color);
+    font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.74rem;
+    color: var(--text-secondary);
+  }
+  footer .tlp { color: var(--accent-blood); }
+
+  @media (max-width: 768px) { .title { font-size: 2.3rem; } }
 </style>
 </head>
 <body>
 <header>
   <div class="header-inner">
-    <span class="eyebrow">◆ Knowledge Base · Capabilities Overview</span>
-    <h1 class="title">Eolas Vault</h1>
+    <div class="boot">root@eolas:~$ ./load_capabilities --all <span class="err">[OK]</span> mounting vault<span class="cursor">&nbsp;</span></div>
+    <span class="eyebrow">// knowledge-base :: capabilities-overview</span>
+    <h1 class="title glitch" data-text="EOLAS//VAULT">EOLAS//VAULT</h1>
     <p class="subtitle">
       A structured, portable knowledge base for threat intelligence, malware analysis,
       OSINT, detection engineering, and AI security research — methodology, reusable skills,
