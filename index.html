@@ -433,10 +433,79 @@
       </p>
     </div>
     <div class="card-grid">
-      <div class="card"><span class="icon">🧭</span><h3>Documented methodology</h3><p>Every investigation type has a documented skill: tool chains, commands, output formats, and lessons learned. <strong>Why it helps:</strong> analysis stays consistent across cases and analysts, so quality no longer depends on who happens to be at the keyboard or whether a step was remembered.</p><div class="tags"><span class="tag a">Skills</span><span class="tag b">Runbooks</span></div></div>
-      <div class="card"><span class="icon">🤖</span><h3>LLM-native</h3><p>Structured frontmatter, navigation tables, and model-config profiles let AI agents read, route, and execute work directly from the vault. <strong>Why it helps:</strong> the same methodology a human follows can be driven by an autonomous agent, multiplying output while keeping the rigour intact.</p><div class="tags"><span class="tag c">Agentic</span><span class="tag b">MCP</span></div></div>
-      <div class="card"><span class="icon">🔁</span><h3>Self-improving</h3><p>A curation loop distils session observations into permanent methodology — flagged, reviewed, and promoted into skill files over time. <strong>Why it helps:</strong> every investigation makes the next one faster, and hard-won lessons are captured before they are forgotten.</p><div class="tags"><span class="tag a">Curation</span><span class="tag w">Lessons</span></div></div>
-      <div class="card"><span class="icon">🔐</span><h3>Discipline by design</h3><p>Masked-credentials inventory, strict trust-zone separation, and untrusted-input handling are built into the structure from the ground up. <strong>Why it helps:</strong> secrets stay out of the wrong context and a malicious sample cannot quietly poison the analysis that examines it.</p><div class="tags"><span class="tag w">OPSEC</span><span class="tag a">Safety</span></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🧭</span><h3>Documented methodology</h3><p>Every investigation type has a documented skill: tool chains, commands, output formats, and lessons learned. <strong>Why it helps:</strong> analysis stays consistent across cases and analysts, so quality no longer depends on who happens to be at the keyboard or whether a step was remembered.</p><div class="tags"><span class="tag a">Skills</span><span class="tag b">Runbooks</span></div></div><div class="face back"><div class="back-title">Documented Methodology</div><pre class="schema"> [investigation type]
+          |
+          v
++------------------+
+| skill file       |
+| tool chains      |
+| commands. output |
+| lessons learned  |
++--------+---------+
+         v
++------------------+
+| same procedure   |
+| every analyst    |
+| every case       |
++--------+---------+
+         v
+ [defensible result]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🤖</span><h3>LLM-native</h3><p>Structured frontmatter, navigation tables, and model-config profiles let AI agents read, route, and execute work directly from the vault. <strong>Why it helps:</strong> the same methodology a human follows can be driven by an autonomous agent, multiplying output while keeping the rigour intact.</p><div class="tags"><span class="tag c">Agentic</span><span class="tag b">MCP</span></div></div><div class="face back"><div class="back-title">LLM-Native</div><pre class="schema">  [vault content]
+         |
+         v
++-----------------+
+| structured      |
+| frontmatter +   |
+| nav tables      |
++--------+--------+
+         v
++-----------------+
+| agent reads,    |
+| routes, runs    |
+| CLI . MCP       |
++--------+--------+
+         v
+ [human rigour at
+   agent scale]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🔁</span><h3>Self-improving</h3><p>A curation loop distils session observations into permanent methodology — flagged, reviewed, and promoted into skill files over time. <strong>Why it helps:</strong> every investigation makes the next one faster, and hard-won lessons are captured before they are forgotten.</p><div class="tags"><span class="tag a">Curation</span><span class="tag w">Lessons</span></div></div><div class="face back"><div class="back-title">Self-Improving</div><pre class="schema">  [session work]
+         |
+         v
++----------------+
+| flag candidate |
+| observations   |
++-------+--------+
+        v
++----------------+
+| analyst review |
+| genuine lesson?|
++-------+--------+
+   yes |    no --> [drop]
+        v
++----------------+
+| promote into   |
+| skill files    |
++-------+--------+
+        v
+ [next run faster]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🔐</span><h3>Discipline by design</h3><p>Masked-credentials inventory, strict trust-zone separation, and untrusted-input handling are built into the structure from the ground up. <strong>Why it helps:</strong> secrets stay out of the wrong context and a malicious sample cannot quietly poison the analysis that examines it.</p><div class="tags"><span class="tag w">OPSEC</span><span class="tag a">Safety</span></div></div><div class="face back"><div class="back-title">Discipline by Design</div><pre class="schema"> [untrusted input]
+         |
+         v
++-----------------+
+| trust zones     |
+| quarantine +    |
+| defang          |
++--------+--------+
+         v
++-----------------+
+| masked creds    |
+| inventory only  |
++--------+--------+
+         v
++-----------------+
+| analysis reads  |
+| data -- never   |
+| executes it     |
++-----------------+</pre></div></div></div>
     </div>
   </section>
 
@@ -769,9 +838,64 @@
       <div class="flow-box"><span class="fi">📝</span>Deliver<br><small>shareable intel</small></div>
     </div>
     <div class="card-grid" style="margin-top:1.4rem;">
-      <div class="card"><span class="icon">📰</span><h3>Threat-Article Ingestion</h3><p>Safely bring dangerous-looking source material into the knowledge base with untrusted-input handling, defanging, and payload quarantine. <strong>Purpose:</strong> learn from live threat content while the content itself stays contained and harmless.</p></div>
-      <div class="card"><span class="icon">🐉</span><h3>Campaign Runbooks</h3><p>Dedicated end-to-end playbooks for known campaign families, capturing the full investigative sequence. <strong>Purpose:</strong> when a known threat resurfaces, the complete response is ready to run start to finish, with nothing rebuilt by hand under pressure.</p></div>
-      <div class="card"><span class="icon">📔</span><h3>Session Logging & Continuity</h3><p>Dual-write session indexing with resume pointers across every working host. <strong>Purpose:</strong> long, multi-step investigations survive restarts and hand-offs, with a clear audit trail of what was done and where to pick up.</p></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">📰</span><h3>Threat-Article Ingestion</h3><p>Safely bring dangerous-looking source material into the knowledge base with untrusted-input handling, defanging, and payload quarantine. <strong>Purpose:</strong> learn from live threat content while the content itself stays contained and harmless.</p></div><div class="face back"><div class="back-title">Threat-Article Ingestion</div><pre class="schema"> [dangerous article]
+          |
+          v
++-----------------+
+| untrusted-input |
+| handling        |
++--------+--------+
+         v
++-----------------+
+| defang IOCs +   |
+| quarantine      |
+| payloads        |
++--------+--------+
+         v
++-----------------+
+| extract intel   |
+| safely          |
++--------+--------+
+         v
+  [vault knowledge]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🐉</span><h3>Campaign Runbooks</h3><p>Dedicated end-to-end playbooks for known campaign families, capturing the full investigative sequence. <strong>Purpose:</strong> when a known threat resurfaces, the complete response is ready to run start to finish, with nothing rebuilt by hand under pressure.</p></div><div class="face back"><div class="back-title">Campaign Runbooks</div><pre class="schema">  [known campaign
+    resurfaces]
+         |
+         v
++----------------+
+| dedicated      |
+| runbook        |
+| intake->report |
++-------+--------+
+        v
++----------------+
+| chained skills |
+| analyse. sign. |
+| enrich. share  |
++-------+--------+
+        v
+ [full response,
+  nothing rebuilt]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">📔</span><h3>Session Logging & Continuity</h3><p>Dual-write session indexing with resume pointers across every working host. <strong>Purpose:</strong> long, multi-step investigations survive restarts and hand-offs, with a clear audit trail of what was done and where to pick up.</p></div><div class="face back"><div class="back-title">Session Logging</div><pre class="schema"> [session starts]
+         |
+         v
++----------------+
+| dual-write log |
+| local + vault  |
++-------+--------+
+        v
++----------------+
+| milestones +   |
+| resume pointer |
++-------+--------+
+        v
+   interrupted?
+    |        |
+   yes       no
+    |        |
+    v        v
+ [resume    [audit
+  exactly]   trail]</pre></div></div></div>
     </div>
   </section>
 
@@ -809,11 +933,89 @@
       <p>The vault is wired for hands-off operation across machines and channels. Upkeep, sync, and routine collection run on their own, so the system stays current and consistent everywhere while analyst attention goes to the work that genuinely needs human judgement.</p>
     </div>
     <div class="card-grid">
-      <div class="card"><span class="icon">☁️</span><h3>Scheduled Cloud Routines</h3><p>Recurring automated agents keep intelligence fresh and the vault tidy, digesting new threats and surfacing curation work on a schedule. <strong>Purpose:</strong> routine upkeep runs on its own, freeing analyst time for judgement and deep work.</p><div class="tags"><span class="tag a">Cron</span><span class="tag b">Hygiene</span></div></div>
-      <div class="card"><span class="icon">🔗</span><h3>Multi-Host Sync</h3><p>Git-versioned and synchronised across a host mesh with strict, linear, append-only discipline and signature-preserving history. <strong>Purpose:</strong> the same knowledge is available and trustworthy on every machine, with a tamper-evident record of every change.</p><div class="tags"><span class="tag c">Git</span><span class="tag a">Mesh</span></div></div>
-      <div class="card"><span class="icon">💬</span><h3>Remote Orchestration</h3><p>A command bot provides remote control-plane access to routing and operations from anywhere. <strong>Purpose:</strong> investigations can be launched and steered without sitting at the workstation, so response is never tied to one location.</p><div class="tags"><span class="tag b">Bot</span><span class="tag c">Control Plane</span></div></div>
-      <div class="card"><span class="icon">🧰</span><h3>Canonical Pipeline Scripts</h3><p>A single source of truth for pipeline scripts keeps automated and manual runs aligned. <strong>Purpose:</strong> results stay reproducible whoever runs them and however they are triggered.</p><div class="tags"><span class="tag a">Scripts</span><span class="tag w">Source of Truth</span></div></div>
-      <div class="card"><span class="icon">🧠</span><h3>Multi-Model Routing</h3><p>A task-to-model routing layer picks the right engine per job across frontier APIs and local, offline models, matching capability, cost, and privacy to the work. <strong>Purpose:</strong> quality-critical work reaches the strongest model while bulk and sensitive tasks run locally, holding cost down and keeping private data in-house.</p><div class="tags"><span class="tag a">Frontier + Local</span><span class="tag b">Offline-capable</span><span class="tag c">Cost-aware</span></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">☁️</span><h3>Scheduled Cloud Routines</h3><p>Recurring automated agents keep intelligence fresh and the vault tidy, digesting new threats and surfacing curation work on a schedule. <strong>Purpose:</strong> routine upkeep runs on its own, freeing analyst time for judgement and deep work.</p><div class="tags"><span class="tag a">Cron</span><span class="tag b">Hygiene</span></div></div><div class="face back"><div class="back-title">Cloud Routines</div><pre class="schema"> [cron schedule]
+        |
+        v
++----------------+
+| cloud agents   |
+| threat digest  |
+| vault hygiene  |
+| curation queue |
++-------+--------+
+        v
++----------------+
+| commit results |
+| append-only    |
++-------+--------+
+        v
+ [fresh vault, no
+  analyst time]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🔗</span><h3>Multi-Host Sync</h3><p>Git-versioned and synchronised across a host mesh with strict, linear, append-only discipline and signature-preserving history. <strong>Purpose:</strong> the same knowledge is available and trustworthy on every machine, with a tamper-evident record of every change.</p><div class="tags"><span class="tag c">Git</span><span class="tag a">Mesh</span></div></div><div class="face back"><div class="back-title">Multi-Host Sync</div><pre class="schema"> [commit on host A]
+          |
+          v
++-----------------+
+| git push        |
+| ff-only. linear |
+| signed history  |
++--------+--------+
+         v
++-----------------+
+| fan-out pull    |
+| to host mesh    |
++--------+--------+
+         v
+  [same knowledge
+    everywhere]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">💬</span><h3>Remote Orchestration</h3><p>A command bot provides remote control-plane access to routing and operations from anywhere. <strong>Purpose:</strong> investigations can be launched and steered without sitting at the workstation, so response is never tied to one location.</p><div class="tags"><span class="tag b">Bot</span><span class="tag c">Control Plane</span></div></div><div class="face back"><div class="back-title">Remote Orchestration</div><pre class="schema"> [analyst, anywhere]
+          |
+          v
++-----------------+
+| secure bot      |
+| channel         |
++--------+--------+
+         v
++-----------------+
+| command router  |
+| status. launch  |
+| steer           |
++--------+--------+
+         v
++-----------------+
+| working hosts   |
++-----------------+</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🧰</span><h3>Canonical Pipeline Scripts</h3><p>A single source of truth for pipeline scripts keeps automated and manual runs aligned. <strong>Purpose:</strong> results stay reproducible whoever runs them and however they are triggered.</p><div class="tags"><span class="tag a">Scripts</span><span class="tag w">Source of Truth</span></div></div><div class="face back"><div class="back-title">Pipeline Scripts</div><pre class="schema"> [one source of truth]
+          |
+          v
++------------------+
+| versioned script |
+| library          |
++----+--------+----+
+     |        |
+     v        v
++--------+ +--------+
+| manual | | auto   |
+| runs   | | runs   |
++---+----+ +----+---+
+     \        /
+      v      v
+ [identical results]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🧠</span><h3>Multi-Model Routing</h3><p>A task-to-model routing layer picks the right engine per job across frontier APIs and local, offline models, matching capability, cost, and privacy to the work. <strong>Purpose:</strong> quality-critical work reaches the strongest model while bulk and sensitive tasks run locally, holding cost down and keeping private data in-house.</p><div class="tags"><span class="tag a">Frontier + Local</span><span class="tag b">Offline-capable</span><span class="tag c">Cost-aware</span></div></div><div class="face back"><div class="back-title">Multi-Model Routing</div><pre class="schema">  [task arrives]
+         |
+         v
++----------------+
+| routing matrix |
+| capability.    |
+| cost. privacy  |
++---+--------+---+
+    |        |
+    v        v
++--------+ +---------+
+| frontier| | local   |
+| APIs    | | offline |
++----+---+ +----+----+
+      \        /
+       v      v
+ [right model per job]</pre></div></div></div>
     </div>
   </section>
 
@@ -841,7 +1043,7 @@
 <script>
 /* size each ASCII schema so its widest line spans ~80% of the card width */
 function fitSchemas() {
-  document.querySelectorAll('#capabilities .card.flip').forEach(function (card) {
+  document.querySelectorAll('.card.flip').forEach(function (card) {
     var pre = card.querySelector('pre.schema');
     if (!pre) return;
     var longest = pre.textContent.split('\n').reduce(function (m, l) { return Math.max(m, l.length); }, 0);
@@ -854,7 +1056,7 @@ function fitSchemas() {
 fitSchemas();
 window.addEventListener('resize', fitSchemas);
 
-document.querySelectorAll('#capabilities .card.flip').forEach(function (card) {
+document.querySelectorAll('.card.flip').forEach(function (card) {
   function toggle() {
     card.classList.toggle('is-flipped');
     card.setAttribute('aria-expanded', card.classList.contains('is-flipped'));
