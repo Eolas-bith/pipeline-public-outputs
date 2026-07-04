@@ -350,18 +350,16 @@
   /* ---------- flip cards (capability domains) ---------- */
   .card.flip { cursor: pointer; perspective: 1400px; overflow: visible; }
   .card.flip .flip-inner {
-    display: grid; height: 100%;
+    position: relative; height: 100%;
     transform-style: preserve-3d;
     transition: transform .55s cubic-bezier(.2,.7,.3,1);
   }
   .card.flip.is-flipped .flip-inner { transform: rotateY(180deg); }
-  .card.flip .face {
-    grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden;
-  }
-  .card.flip .face.front { position: relative; }
+  .card.flip .face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .card.flip .face.front { position: relative; min-height: 100%; }
   .card.flip .face.front h3 { padding-right: 5rem; }
   .card.flip .face.back {
-    transform: rotateY(180deg);
+    position: absolute; inset: 0; transform: rotateY(180deg);
     display: flex; flex-direction: column; overflow: hidden;
     background: var(--bg-secondary);
   }
@@ -372,9 +370,15 @@
   }
   .back-title::before { content: "// "; font-family: var(--mono); color: var(--accent-blood); font-weight: 400; }
   pre.schema {
-    font-family: var(--mono); font-size: 0.64rem; line-height: 1.32;
-    color: var(--accent); margin: 0; flex: 1; overflow: auto;
+    font-family: var(--mono); font-size: 0.8rem; line-height: 1.35;
+    color: var(--accent); margin: 0; flex: 1;
+    overflow-x: hidden; overflow-y: auto;
+    scrollbar-width: thin; scrollbar-color: rgba(142,163,107,0.55) var(--bg-tertiary);
   }
+  pre.schema::-webkit-scrollbar { width: 7px; }
+  pre.schema::-webkit-scrollbar-track { background: var(--bg-tertiary); }
+  pre.schema::-webkit-scrollbar-thumb { background: rgba(142,163,107,0.55); }
+  pre.schema::-webkit-scrollbar-thumb:hover { background: var(--accent); }
   .card.flip .face::after {
     font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.06em;
     color: var(--text-secondary); opacity: 0.75;
@@ -835,13 +839,30 @@
   Eolas Vault — Capabilities Overview · <span class="tlp">TLP:CLEAR</span> · Methodology &amp; functionality only — no operational data
 </footer>
 <script>
+/* size each ASCII schema so its widest line spans ~80% of the card width */
+function fitSchemas() {
+  document.querySelectorAll('#capabilities .card.flip').forEach(function (card) {
+    var pre = card.querySelector('pre.schema');
+    if (!pre) return;
+    var longest = pre.textContent.split('\n').reduce(function (m, l) { return Math.max(m, l.length); }, 0);
+    if (!longest) return;
+    var inner = card.clientWidth - 48; /* card padding 1.5rem x2 */
+    var size = (inner * 0.8) / (longest * 0.6); /* Share Tech Mono advance width = 0.6em */
+    pre.style.fontSize = Math.max(10, Math.min(17, size)) + 'px';
+  });
+}
+fitSchemas();
+window.addEventListener('resize', fitSchemas);
+
 document.querySelectorAll('#capabilities .card.flip').forEach(function (card) {
   function toggle() {
     card.classList.toggle('is-flipped');
     card.setAttribute('aria-expanded', card.classList.contains('is-flipped'));
   }
-  card.addEventListener('click', function () {
+  card.addEventListener('click', function (e) {
     if (window.getSelection && String(window.getSelection())) return; /* let users select text */
+    var pre = card.querySelector('pre.schema');
+    if (pre && pre.contains(e.target) && pre.scrollHeight > pre.clientHeight + 2) return; /* scrolling, not closing */
     toggle();
   });
   card.addEventListener('keydown', function (e) {
