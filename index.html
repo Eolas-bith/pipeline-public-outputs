@@ -506,6 +506,33 @@
 | data -- never   |
 | executes it     |
 +-----------------+</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🗺️</span><h3>Formally modelled</h3><p>A single ontology names the entity classes the work deals with — actors, samples, indicators, narratives, findings, outputs — and the relations between them, published as both a human map and a machine-readable schema. <strong>Why it helps:</strong> the whole knowledge base shares one vocabulary, so tools, agents, and analysts name the same things the same way, and the model can be queried, validated, and reasoned over as a graph.</p><div class="tags"><span class="tag c">Ontology</span><span class="tag b">Schema</span></div></div><div class="face back"><div class="back-title">Formally Modelled</div><pre class="schema">   [the work]
+        |
+        v
++------------------+
+| typed entities   |
+| actor. sample.   |
+| IOC. narrative   |
++--------+---------+
+         v
++------------------+
+| shared grammar   |
+| finding + source |
+| + confidence     |
++--------+---------+
+         v
++------------------+
+| layered model    |
+| foundation up to |
+| specialised      |
++--------+---------+
+         v
++------------------+
+| human map +      |
+| machine schema   |
++--------+---------+
+         v
+ [queryable graph]</pre></div></div></div>
     </div>
   </section>
 
