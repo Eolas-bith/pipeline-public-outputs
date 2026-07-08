@@ -1043,6 +1043,37 @@
       \        /
        v      v
  [right model per job]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Hybrid-Threat Fusion</h3><p>Links coordinated influence activity to the cyber infrastructure and actors behind it, building a source-cited evidence graph that keeps how-confident-it-is-coordinated separate from who-is-behind-it. <strong>Purpose:</strong> the narrative layer and the infrastructure layer are read as one case, so an influence campaign and the adversary operating it surface together, with every claim traceable to its source.</p><div class="tags"><span class="tag a">Narrative + Cyber</span><span class="tag b">MISP / DISARM</span><span class="tag c">Cited Attribution</span></div></div><div class="face back"><div class="back-title">Hybrid-Threat Fusion</div><pre class="schema"> [narrative signals]
+        |
+        v
++----------------+
+| infra enrich   |
+| pDNS/cert/VT   |
++----------------+
+        |
+        v
++----------------+
+| cluster: shared|
+| infrastructure |
++----------------+
+        |
+        v
++----------------+
+| score:         |
+| detection  vs  |
+| attribution    |
++----------------+
+        |
+        v
++----------------+
+| grounding gate |
+| no uncited     |
+| claim          |
++----------------+
+        |
+        v
+ [MISP + DISARM
+  event + report]</pre></div></div></div>
     </div>
   </section>
 
