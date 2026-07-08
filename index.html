@@ -339,6 +339,16 @@
     border-radius: 0; box-shadow: none;
   }
   .callout h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-primary); }
+  .repo-link {
+    display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.1rem;
+    font-family: var(--mono); font-size: 0.9rem; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); text-decoration: none;
+    border: 1px solid var(--accent); padding: 0.55rem 1rem; border-radius: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+  .repo-link::before { content: "\2192"; color: var(--accent-blood); }
+  .repo-link:hover, .repo-link:focus { background: var(--accent); color: var(--bg-primary); outline: none; }
+  .repo-link:hover::before, .repo-link:focus::before { color: var(--bg-primary); }
 
   footer {
     border-top: 1px solid var(--border-color);
@@ -1090,6 +1100,23 @@
         Whether driven by a human analyst or an autonomous agent, the work is repeatable, auditable,
         and ready to scale.
       </p>
+    </div>
+  </section>
+
+  <section id="blueprint">
+    <div class="section-head">
+      <h2><span class="bar"></span>Open Blueprint</h2>
+    </div>
+    <div class="callout">
+      <h3>A blueprint you can start from.</h3>
+      <p>
+        The Training Knowledge Vault is a live, public, sanitised blueprint of the concept that grew
+        into the Eolas Vault. It carries the same structure — skills, workflows, reference knowledge,
+        and self-maintenance — at a teaching scale, shared openly so anyone can learn the method.
+        <strong>Purpose:</strong> give analysts a working template to fork, study, and grow into a
+        knowledge base of their own, and a shared starting point for making that journey.
+      </p>
+      <a class="repo-link" href="https://github.com/Eolas-bith/training-knowledge-vault" target="_blank" rel="noopener">github.com/Eolas-bith/training-knowledge-vault</a>
     </div>
   </section>
 
