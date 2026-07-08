@@ -1107,16 +1107,18 @@
     <div class="section-head">
       <h2><span class="bar"></span>Open Blueprint</h2>
     </div>
-    <div class="callout">
-      <h3>A blueprint you can start from.</h3>
-      <p>
-        The Training Knowledge Vault is a live, public, sanitised blueprint of the concept that grew
-        into the Eolas Vault. It carries the same structure — skills, workflows, reference knowledge,
-        and self-maintenance — at a teaching scale, shared openly so anyone can learn the method.
-        <strong>Purpose:</strong> give analysts a working template to fork, study, and grow into a
-        knowledge base of their own, and a shared starting point for making that journey.
-      </p>
-      <a class="repo-link" href="https://github.com/Eolas-bith/training-knowledge-vault" target="_blank" rel="noopener">github.com/Eolas-bith/training-knowledge-vault</a>
+    <div class="card-grid" style="grid-template-columns: minmax(290px, 460px);">
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false" style="min-height: 360px;"><div class="flip-inner"><div class="face front"><span class="icon">🧭</span><h3>Start your own vault</h3><p>The Training Knowledge Vault is a live, public, sanitised blueprint of the concept that grew into the Eolas Vault — the same structure at a teaching scale, shared openly so anyone can learn the method. <strong>Purpose:</strong> a working template to fork, study, and grow into a knowledge base of your own, and a shared starting point for the journey.</p><a class="repo-link" href="https://github.com/Eolas-bith/training-knowledge-vault" target="_blank" rel="noopener">github.com/Eolas-bith/training-knowledge-vault</a><div class="tags"><span class="tag a">Fork</span><span class="tag b">Learn</span><span class="tag c">Build</span></div></div><div class="face back"><div class="back-title">Open Blueprint</div><pre class="schema"> [ training vault ]
+   public blueprint
+          |
+          v
+   [ fork / clone ]
+          |
+          v
+  [ study + adapt ]
+          |
+          v
+ [ build your own ]</pre></div></div></div>
     </div>
   </section>
 
@@ -1147,6 +1149,7 @@ document.querySelectorAll('.card.flip').forEach(function (card) {
     card.setAttribute('aria-expanded', card.classList.contains('is-flipped'));
   }
   card.addEventListener('click', function (e) {
+    if (e.target.closest('a')) return; /* let links navigate without flipping */
     if (window.getSelection && String(window.getSelection())) return; /* let users select text */
     var pre = card.querySelector('pre.schema');
     if (pre && pre.contains(e.target) && pre.scrollHeight > pre.clientHeight + 2) return; /* scrolling, not closing */
