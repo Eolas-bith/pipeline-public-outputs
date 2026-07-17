@@ -814,6 +814,26 @@
 +---------+---------+
           v
   [hardening report]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Uncensored-Model Detection</h3><p>A four-layer detector that identifies open-weight language models whose safety alignment has been stripped or weakened, and attributes how it was done, reading published provenance, weight-space geometry, activation-space probes, and behavioral benchmarks. <strong>Purpose:</strong> as safety-removed models spread across research hosts and criminal services, defenders can tell whether an unknown model has had its guardrails removed and by which method, then flag, attribute, and monitor it.</p><div class="tags"><span class="tag a">4-Layer Detector</span><span class="tag b">Model Forensics</span><span class="tag c">Method Attribution</span></div></div><div class="face back"><div class="back-title">Uncensored-Model Detection</div><pre class="schema">  [ unknown model ]
+          |
+          v
++-------------------+
+| L1 provenance     |
++---------+---------+
+          v
++-------------------+
+| L2 weight-space   |
++---------+---------+
+          v
++-------------------+
+| L3 activation     |
++---------+---------+
+          v
++-------------------+
+| L4 behavioral     |
++---------+---------+
+          v
+ [ verdict + method ]</pre></div></div></div>
       <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">⚖️</span><h3>AI Governance &amp; Compliance</h3><p>Maps security-testing and red-team work to the regulation that now governs it: which compliance frameworks accept autonomous / AI-driven pentest evidence and which still require a credentialed human, plus the legislation that mandates adversarial testing of AI systems — EU AI Act, NIST AI RMF, and ISO/IEC 42001 — with clause references verified against primary sources. <strong>Purpose:</strong> so a red-team or pentest result lands as audit-ready evidence in the right regulatory frame, and AI systems are tested to the standard the law now expects.</p><div class="tags"><span class="tag a">EU AI Act</span><span class="tag b">NIST AI RMF</span><span class="tag c">ISO 42001</span></div></div><div class="face back"><div class="back-title">AI Governance & Compliance</div><pre class="schema">  [red-team / pentest
       evidence]
           |
