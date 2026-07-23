@@ -774,6 +774,35 @@
 +-------+--------+
          v
  [coordinated disclosure]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🔁</span><h3>Autonomous Code Audit</h3><p>Loop a whitebox audit across a whole codebase: enumerate every component, generate candidate findings at each altitude from whole-project to single function, then adversarially verify each one against the raw source before it counts. <strong>Purpose:</strong> surface far more real, proven vulnerabilities than a single pass, with a coverage ledger showing every component was examined and a verify step that filters out false positives.</p><div class="tags"><span class="tag a">Whitebox</span><span class="tag b">Verify</span><span class="tag c">Coverage</span></div></div><div class="face back"><div class="back-title">Autonomous Code Audit</div><pre class="schema">  [source tree]
+       |
+       v
++----------------+
+| enumerate all  |
+| components     |
++-------+--------+
+        v
++----------------+
+| generate (raw) |
+| every altitude |
++-------+--------+
+        v
++----------------+
+| judge / refute |
+| from raw       |
++-------+--------+
+        v
++----------------+
+| live-verify    |
+| survivors      |
++-------+--------+
+        v
++----------------+
+| ledger + loop  |
+| until dry      |
++-------+--------+
+        v
+ [coordinated disclosure]</pre></div></div></div>
       <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">⚙️</span><h3>Agentic Engineering</h3><p>Patterns for building agentic systems and agentic SOC workflows — RAG infrastructure, token/cost optimisation, state and reliability design. <strong>Purpose:</strong> scale analyst work with automation that stays reliable and affordable as volume grows.</p><div class="tags"><span class="tag c">Agents</span><span class="tag b">RAG</span><span class="tag a">SOC</span></div></div><div class="face back"><div class="back-title">Agentic Engineering</div><pre class="schema">      [task]
          |
          v
