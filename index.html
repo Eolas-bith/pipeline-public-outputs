@@ -609,6 +609,36 @@
 +------+-------+
        v
   [MISP event]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🎣</span><h3>Phishing-Kit De-Cloaking</h3><p>Take a single live phishing link, defeat the victim-only cloak from a country-matched vantage, safely retrieve the kit's own source, and de-cloak the hosting to the real origin server and its wider domain fleet. <strong>Purpose:</strong> turn one throwaway phishing URL into a map of the operator's whole infrastructure and a clear account of what the kit harvests and where it sends it, ready for a takedown package.</p><div class="tags"><span class="tag a">Cloak Bypass</span><span class="tag b">Origin De-Cloak</span><span class="tag c">Kit Source</span></div></div><div class="face back"><div class="back-title">Phishing-Kit De-Cloaking</div><pre class="schema">  [live phishing URL]
+        |
+        v
+ +----------------+
+ | detect cloak   |
+ | geo . ASN . UA |
+ +-------+--------+
+         v
+ +----------------+
+ | bypass via     |
+ | matched vantage|
+ +-------+--------+
+         v
+ +----------------+
+ | retrieve kit   |
+ | fetch-not-run  |
+ +-------+--------+
+         v
+ +----------------+
+ | deobfuscate    |
+ | fields . crypto|
+ +-------+--------+
+         v
+ +----------------+
+ | de-cloak origin|
+ | apex . pDNS    |
+ | . cert CN      |
+ +-------+--------+
+         v
+  [fleet + MISP event]</pre></div></div></div>
       <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🕵️</span><h3>OSINT & Investigations</h3><p>Person-of-interest profiling, media influence-operation analysis, and compound court / actor / narrative investigations, including dark-web synthesis. <strong>Purpose:</strong> establish identity, affiliations, and conflicts of interest from minimal starting input, with each finding linked to its basis.</p><div class="tags"><span class="tag a">POI</span><span class="tag b">Influence Ops</span><span class="tag c">Dark Web</span></div></div><div class="face back"><div class="back-title">OSINT & Investigations</div><pre class="schema"> [name/handle/domain]
           |
           v
