@@ -697,7 +697,34 @@
 +--------+---------+
          v
   [scored judgement]</pre></div></div></div>
-      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🏛️</span><h3>Threat Modeling</h3><p>Model a system’s attack surface with the framework that fits the job — STRIDE / STRIDE-LM, PASTA, VAST, OCTAVE, and LINDDUN for privacy — with a selection guide and combination patterns. <strong>Purpose:</strong> design weaknesses surface at the design stage, where they are cheapest to fix and easiest to prevent.</p><div class="tags"><span class="tag a">STRIDE</span><span class="tag b">PASTA</span><span class="tag c">LINDDUN</span></div></div><div class="face back"><div class="back-title">Threat Modeling</div><pre class="schema">   [system design]
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Intelligence Requirements &amp; RFI</h3><p>Turn incoming questions into defensible answers: standing intelligence requirements, a scoped request lifecycle, and an answer structure that keeps evidence separate from assessment. <strong>Purpose:</strong> answer the question actually asked, with reasoning visible and remediation ordered so the recipient can act without another round trip.</p><div class="tags"><span class="tag a">Requirements</span><span class="tag b">RFI Lifecycle</span><span class="tag c">Evidence First</span></div></div><div class="face back"><div class="back-title">Intelligence Requirements &amp; RFI</div><pre class="schema">   [question in]
+         |
+         v
++----------------+
+| scope: restate |
+| + decision at  |
+| stake          |
++-------+--------+
+        v
+   answerable?
+   |         |
+  yes        no
+   |         +-> [gap named]
+   v
++----------------+
+| evidence       |
+| facts, cited   |
++-------+--------+
+        v
++----------------+
+| assessment +   |
+| confidence     |
++-------+--------+
+        v
++----------------+
+| remediations   |
+| ordered        |
++----------------+</pre></div></div></div><div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🏛️</span><h3>Threat Modeling</h3><p>Model a system’s attack surface with the framework that fits the job — STRIDE / STRIDE-LM, PASTA, VAST, OCTAVE, and LINDDUN for privacy — with a selection guide and combination patterns. <strong>Purpose:</strong> design weaknesses surface at the design stage, where they are cheapest to fix and easiest to prevent.</p><div class="tags"><span class="tag a">STRIDE</span><span class="tag b">PASTA</span><span class="tag c">LINDDUN</span></div></div><div class="face back"><div class="back-title">Threat Modeling</div><pre class="schema">   [system design]
           |
           v
 +------------------+
@@ -758,7 +785,50 @@
           v
    [production rule]
      ATT&CK-tagged</pre></div></div></div>
-      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🎯</span><h3>Threat Hunting</h3><p>Hypothesis-driven proactive hunting across endpoint, network, and log telemetry — a structured hunt loop, scenario decision trees, query banks, and a findings-to-detection feedback path. <strong>Purpose:</strong> surface adversary activity that slipped past existing alerts, and turn a repeatable hunt into a permanent detection.</p><div class="tags"><span class="tag a">Hunt Loop</span><span class="tag b">Hypotheses</span><span class="tag c">Query Banks</span></div></div><div class="face back"><div class="back-title">Threat Hunting</div><pre class="schema"> [hypothesis]  ATT&CK-anchored
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Identity-Plane Detection</h3><p>Detect attacks on the identity layer — device-code phishing, adversary-in-the-middle token theft, illicit mailbox rules, and OAuth consent abuse — across sign-in, audit, and identity-provider logs. <strong>Purpose:</strong> cover the plane where a large share of modern intrusions begin, with the fields, error codes, and false-positive sources mapped in advance.</p><div class="tags"><span class="tag a">Sign-in Logs</span><span class="tag b">Audit / SSO</span><span class="tag c">AiTM &amp; Consent</span></div></div><div class="face back"><div class="back-title">Identity-Plane Detection</div><pre class="schema"> [identity telemetry]
+ sign-in . audit . IdP
+          |
+          v
++------------------+
+| attack class     |
+| device-code      |
+| AiTM . consent   |
++--------+---------+
+         v
++------------------+
+| field + error    |
+| code mapping     |
++--------+---------+
+         v
++------------------+ benign
+| baseline apps +  |-----+
+| own egress ASN   |<----+
++--------+---------+ tune
+         v
+  [rule + FP notes]</pre></div></div></div><div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Detection Efficacy &amp; Coverage</h3><p>Measure whether a detection portfolio works from analyst outcomes on the alerts it produced: precision per rule, where volume concentrates, tune-suppress-retire decisions, and whether a mapped technique is genuinely alive. <strong>Purpose:</strong> aim tuning at the rules consuming the analyst budget, and keep coverage claims honest.</p><div class="tags"><span class="tag a">Precision</span><span class="tag b">Tuning</span><span class="tag c">Coverage</span></div></div><div class="face back"><div class="back-title">Detection Efficacy &amp; Coverage</div><pre class="schema"> [alerts + verdicts]
+         |
+         v
++------------------+
+| precision per    |
+| rule (outcomes)  |
++--------+---------+
+         v
++------------------+
+| volume concentr. |
+| top-N burden     |
++--------+---------+
+         v
+   tune . suppress
+   retire . keep
+         |
+         v
++------------------+
+| coverage: intel  |
+| -> technique ->  |
+| rule -> liveness |
++--------+---------+
+         v
+   [gap findings]</pre></div></div></div><div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🎯</span><h3>Threat Hunting</h3><p>Hypothesis-driven proactive hunting across endpoint, network, and log telemetry — a structured hunt loop, scenario decision trees, query banks, and a findings-to-detection feedback path. <strong>Purpose:</strong> surface adversary activity that slipped past existing alerts, and turn a repeatable hunt into a permanent detection.</p><div class="tags"><span class="tag a">Hunt Loop</span><span class="tag b">Hypotheses</span><span class="tag c">Query Banks</span></div></div><div class="face back"><div class="back-title">Threat Hunting</div><pre class="schema"> [hypothesis]  ATT&CK-anchored
        |
        v
 +----------------+
@@ -781,7 +851,34 @@
 | escalate + new |
 | detection rule |
 +----------------+</pre></div></div></div>
-      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🧩</span><h3>Vulnerability Research</h3><p>Audit, fuzz, and develop PoCs against binaries, with findings and patches documented. <strong>Purpose:</strong> surface weaknesses before an attacker does and prove them with a working PoC, so fixes are prioritised on real, demonstrated risk.</p><div class="tags"><span class="tag a">Fuzzing</span><span class="tag b">PoC</span><span class="tag w">Patch</span></div></div><div class="face back"><div class="back-title">Vulnerability Research</div><pre class="schema">  [target binary]
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Compromise Assessment</h3><p>A bounded, retrospective sweep of an entire estate — standardised hunt packs per platform, scoped exclusions, staggered collection, and an audience-structured report. <strong>Purpose:</strong> tell a decision-maker whether the estate is compromised now or was compromised undetected, with the coverage and retention limits that bound the answer stated up front.</p><div class="tags"><span class="tag a">Whole Estate</span><span class="tag b">Forensic Sweep</span><span class="tag c">Assessment</span></div></div><div class="face back"><div class="back-title">Compromise Assessment</div><pre class="schema"> [engagement scope]
+         |
+         v
++------------------+
+| coverage check   |
+| + exclusion list |
++--------+---------+
+         v
++------------------+
+| standard hunt    |
+| pack per OS      |
++--------+---------+
+         v
++------------------+
+| staggered        |
+| collection       |
++---+----------+---+
+    |          |
+    v          v
+[live find] [sweep data]
+ handover       |
+ immediate      v
+         +--------------+
+         | findings +   |
+         | nulls, ATT&amp;CK|
+         +------+-------+
+                v
+        [report + limits]</pre></div></div></div><div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🧩</span><h3>Vulnerability Research</h3><p>Audit, fuzz, and develop PoCs against binaries, with findings and patches documented. <strong>Purpose:</strong> surface weaknesses before an attacker does and prove them with a working PoC, so fixes are prioritised on real, demonstrated risk.</p><div class="tags"><span class="tag a">Fuzzing</span><span class="tag b">PoC</span><span class="tag w">Patch</span></div></div><div class="face back"><div class="back-title">Vulnerability Research</div><pre class="schema">  [target binary]
          |
          v
 +----------------+
@@ -911,7 +1008,30 @@
 +--------+---------+
          v
  [audit-ready package]</pre></div></div></div>
-      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🛠️</span><h3>Remediation & Takedown</h3><p>Platform takedown and remediation matrices for fake profiles, phishing domains, and leaked-credential scenarios. <strong>Purpose:</strong> move from finding a threat to removing it, with the right contact, evidence package, and escalation path mapped out in advance.</p><div class="tags"><span class="tag w">Takedown</span><span class="tag a">Remediation</span></div></div><div class="face back"><div class="back-title">Remediation & Takedown</div><pre class="schema"> [confirmed threat]
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Digital Risk Protection</h3><p>Monitor and triage external exposure — lookalike domains, leaked credentials and documents, exposed services, and brand or executive impersonation — with a graded verdict per finding. <strong>Purpose:</strong> catch what is visible from the outside before it gets used, and route each finding with the evidence its response path requires.</p><div class="tags"><span class="tag a">Exposure</span><span class="tag b">Brand</span><span class="tag c">Triage</span></div></div><div class="face back"><div class="back-title">Digital Risk Protection</div><pre class="schema">  [external signal]
+         |
+         v
++-----------------+
+| classify family |
+| phish . leak    |
+| exposure. brand |
++--------+--------+
+         v
++-----------------+
+| verify live +   |
+| verify ownership|
++--------+--------+
+         v
+  graded verdict
+         |
+         v
++-----------------+
+| evidence per    |
+| response path   |
++--------+--------+
+         v
+ [route: takedown
+  reset . rotate]</pre></div></div></div><div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🛠️</span><h3>Remediation & Takedown</h3><p>Platform takedown and remediation matrices for fake profiles, phishing domains, and leaked-credential scenarios. <strong>Purpose:</strong> move from finding a threat to removing it, with the right contact, evidence package, and escalation path mapped out in advance.</p><div class="tags"><span class="tag w">Takedown</span><span class="tag a">Remediation</span></div></div><div class="face back"><div class="back-title">Remediation & Takedown</div><pre class="schema"> [confirmed threat]
          |
          v
 +-----------------+
