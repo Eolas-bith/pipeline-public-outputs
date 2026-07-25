@@ -949,6 +949,30 @@
 +------+-------+
        v
  [auditable output]</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🧱</span><h3>Agent Runtime Isolation</h3><p>Map where an agent's actions are actually constrained — prompt rules, tool schemas, in-server guards, kernel confinement, egress policy — and which of those layers still hold once the agent's context is captured. <strong>Purpose:</strong> judge an agent runtime by what its containment survives before trusting it with untrusted content.</p><div class="tags"><span class="tag a">Sandboxing</span><span class="tag c">Egress Policy</span><span class="tag b">Containment</span></div></div><div class="face back"><div class="back-title">Agent Runtime Isolation</div><pre class="schema">   [agent runtime]
+         |
+         v
++---------------------+
+| layer map           |
+| prompt . schema     |
+| guard . kernel      |
++----------+----------+
+           v
++---------------------+
+| which layers hold   |
+| under capture       |
++----------+----------+
+           v
++---------------------+
+| egress default-deny |
+| credential custody  |
++----------+----------+
+           v
++---------------------+
+| escape test         |
++----------+----------+
+           v
+ [containment verdict]</pre></div></div></div>
       <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🧪</span><h3>AI Security & Red Teaming</h3><p>Defensive AI architecture (lethal trifecta, taint tracking, MCP attack classes), ML/NLP foundations for red teaming, and IoPC detection taxonomy. <strong>Purpose:</strong> as attackers begin to target LLMs and agents, harden AI systems and pressure-test them the way a real adversary would.</p><div class="tags"><span class="tag w">Prompt Injection</span><span class="tag a">MCP</span><span class="tag c">IoPC</span></div></div><div class="face back"><div class="back-title">AI Security & Red Teaming</div><pre class="schema">  [AI system target]
            |
            v
