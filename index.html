@@ -516,6 +516,35 @@
 | data -- never   |
 | executes it     |
 +-----------------+</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🔎</span><h3>Source-verified</h3><p>Machine-generated research is checked at the citation level before it enters the vault: every load-bearing claim against the source actually cited, and key figures re-read at the body that issued them. <strong>Why it helps:</strong> automated research pairs sound claims with topically similar but wrong sources, which survives a plausibility read, so what the vault keeps carries a confidence grade and what was corrected stays on the record.</p><div class="tags"><span class="tag a">Citation-Level</span><span class="tag c">Confidence Grading</span></div></div><div class="face back"><div class="back-title">Source-Verified</div><pre class="schema">  [research report]
+          |
+          v
++--------------------+
+| split claims from  |
+| their citations    |
++---------+----------+
+          v
++--------------------+
+| open each source:  |
+| does it support    |
+| this claim?        |
++---------+----------+
+          v
++--------------------+
+| load-bearing       |
+| figures rechecked  |
+| at primary issuer  |
++---------+----------+
+          v
++--------------------+
+| verified .         |
+| corroborated .     |
+| self-asserted .    |
+| inferred . wrong   |
++---------+----------+
+          v
+  [graded record +
+   corrections log]</pre></div></div></div>
       <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🗺️</span><h3>Formally modelled</h3><p>A single ontology names the entity classes the work deals with — actors, samples, indicators, narratives, findings, outputs — and the relations between them, published as both a human map and a machine-readable schema. <strong>Why it helps:</strong> the whole knowledge base shares one vocabulary, so tools, agents, and analysts name the same things the same way, and the model can be queried, validated, and reasoned over as a graph.</p><div class="tags"><span class="tag c">Ontology</span><span class="tag b">Schema</span></div></div><div class="face back"><div class="back-title">Formally Modelled</div><pre class="schema">   [the work]
         |
         v
@@ -697,35 +726,6 @@
 +--------+---------+
          v
   [scored judgement]</pre></div></div></div>
-      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Deep-Research Triage</h3><p>Verify machine-generated research before it enters the knowledge base: every load-bearing claim checked against the source actually cited, and key figures re-read at the body that issued them. <strong>Purpose:</strong> automated research pairs sound claims with topically similar but wrong sources, which survives a plausibility read, so each retained claim carries a confidence grade.</p><div class="tags"><span class="tag a">Citation-Level</span><span class="tag b">Primary Source</span><span class="tag c">Confidence Grading</span></div></div><div class="face back"><div class="back-title">Deep-Research Triage</div><pre class="schema">  [research report]
-          |
-          v
-+--------------------+
-| split claims from  |
-| their citations    |
-+---------+----------+
-          v
-+--------------------+
-| open each source:  |
-| does it support    |
-| this claim?        |
-+---------+----------+
-          v
-+--------------------+
-| load-bearing       |
-| figures rechecked  |
-| at primary issuer  |
-+---------+----------+
-          v
-+--------------------+
-| verified .         |
-| corroborated .     |
-| self-asserted .    |
-| inferred . wrong   |
-+---------+----------+
-          v
-  [graded record +
-   corrections log]</pre></div></div></div>
       <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Intelligence Requirements &amp; RFI</h3><p>Turn incoming questions into defensible answers: standing intelligence requirements, a scoped request lifecycle, and an answer structure that keeps evidence separate from assessment. <strong>Purpose:</strong> answer the question actually asked, with reasoning visible and remediation ordered so the recipient can act without another round trip.</p><div class="tags"><span class="tag a">Requirements</span><span class="tag b">RFI Lifecycle</span><span class="tag c">Evidence First</span></div></div><div class="face back"><div class="back-title">Intelligence Requirements &amp; RFI</div><pre class="schema">   [question in]
          |
          v
