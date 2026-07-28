@@ -128,18 +128,6 @@
   .tag.c { color: var(--accent-purple); border-color: rgba(167,139,250,0.35); }
   .tag.w { color: var(--accent-warn); border-color: rgba(245,158,11,0.35); }
 
-  /* feature list (workflows / pipeline) */
-  .flow {
-    display: flex; flex-wrap: wrap; align-items: stretch; gap: 0.6rem; margin-top: 0.5rem;
-  }
-  .flow-box {
-    flex: 1 1 150px; background-color: var(--bg-tertiary); border: 1px solid var(--border-color);
-    border-radius: 10px; padding: 1rem; text-align: center; font-size: 0.88rem;
-  }
-  .flow-box .fi { font-size: 1.4rem; display: block; margin-bottom: 0.4rem; }
-  .flow-box small { color: var(--text-secondary); }
-  .flow-arrow { align-self: center; color: var(--accent); font-size: 1.3rem; }
-
   /* two-column capability list */
   .domain-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px,1fr)); gap: 0.7rem; }
   .domain-item {
@@ -170,7 +158,6 @@
     header { padding: 3rem 1.4rem 2.5rem; }
     main { padding: 2.5rem 1.4rem; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
-    .flow-arrow { display: none; }
   }
 
   /* ============================================================
@@ -292,7 +279,7 @@
 
   /* numbered capability slots, no emoji, no glow */
   .card-grid { counter-reset: slot; }
-  .card .icon, .flow-box .fi, .domain-item .di { display: none; }
+  .card .icon, .domain-item .di { display: none; }
   .card {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color); border-radius: 0;
@@ -321,15 +308,6 @@
   .tag.b { color: var(--accent-2); border-color: rgba(111,147,168,0.35); }
   .tag.c { color: var(--accent-purple); border-color: rgba(135,122,152,0.4); }
   .tag.w { color: var(--accent-warn); border-color: rgba(176,138,74,0.4); }
-
-  .flow { counter-reset: step; }
-  .flow-box { background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 0; font-family: var(--mono); }
-  .flow-box::before {
-    counter-increment: step; content: counter(step, decimal-leading-zero);
-    display: block; font-family: var(--display); font-weight: 700; color: var(--accent);
-    font-size: 1.05rem; margin-bottom: 0.35rem;
-  }
-  .flow-arrow { color: var(--accent); opacity: 0.7; }
 
   .domain-item { background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 0; }
 
@@ -423,7 +401,6 @@
       <div class="stat-card"><div class="stat-number">7</div><div class="stat-label">Behavioral Methods</div></div>
       <div class="stat-card"><div class="stat-number">12+</div><div class="stat-label">Detection Libraries</div></div>
       <div class="stat-card"><div class="stat-number">Multi</div><div class="stat-label">LLM Config Profiles</div></div>
-      <div class="stat-card"><div class="stat-number">End-to-end</div><div class="stat-label">Automated Workflows</div></div>
     </div>
   </div>
 </header>
@@ -1127,87 +1104,6 @@
 +--------+---------+
          v
    verify propagation</pre></div></div></div>
-    </div>
-  </section>
-
-  <!-- PIPELINE / WORKFLOW -->
-  <section id="workflows">
-    <div class="section-head">
-      <h2><span class="bar"></span>End-to-End Workflows</h2>
-      <p>Multi-step runbooks chain skills into complete pipelines — for example, taking a dangerous-looking artifact safely from intake to shareable intelligence. They remove the seams between steps, so a whole investigation runs as one continuous, auditable flow with nothing dropped at the hand-offs.</p>
-    </div>
-    <div class="flow">
-      <div class="flow-box"><span class="fi">📥</span>Safe Intake<br><small>defang & quarantine</small></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box"><span class="fi">🔬</span>Analyse<br><small>static / dynamic</small></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box"><span class="fi">📐</span>Signatures<br><small>YARA / Sigma</small></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box"><span class="fi">🛰️</span>Enrich<br><small>IOC pivoting</small></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box"><span class="fi">📤</span>Share<br><small>MISP ingestion</small></div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-box"><span class="fi">📝</span>Deliver<br><small>shareable intel</small></div>
-    </div>
-    <div class="card-grid" style="margin-top:1.4rem;">
-      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">📰</span><h3>Threat-Article Ingestion</h3><p>Safely bring dangerous-looking source material into the knowledge base with untrusted-input handling, defanging, and payload quarantine. <strong>Purpose:</strong> learn from live threat content while the content itself stays contained and harmless.</p></div><div class="face back"><div class="back-title">Threat-Article Ingestion</div><pre class="schema"> [dangerous article]
-          |
-          v
-+-----------------+
-| untrusted-input |
-| handling        |
-+--------+--------+
-         v
-+-----------------+
-| defang IOCs +   |
-| quarantine      |
-| payloads        |
-+--------+--------+
-         v
-+-----------------+
-| extract intel   |
-| safely          |
-+--------+--------+
-         v
-  [vault knowledge]</pre></div></div></div>
-      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🐉</span><h3>Campaign Runbooks</h3><p>Dedicated end-to-end playbooks for known campaign families, capturing the full investigative sequence. <strong>Purpose:</strong> when a known threat resurfaces, the complete response is ready to run start to finish, with nothing rebuilt by hand under pressure.</p></div><div class="face back"><div class="back-title">Campaign Runbooks</div><pre class="schema">  [known campaign
-    resurfaces]
-         |
-         v
-+----------------+
-| dedicated      |
-| runbook        |
-| intake->report |
-+-------+--------+
-        v
-+----------------+
-| chained skills |
-| analyse. sign. |
-| enrich. share  |
-+-------+--------+
-        v
- [full response,
-  nothing rebuilt]</pre></div></div></div>
-      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">📔</span><h3>Session Logging & Continuity</h3><p>Dual-write session indexing with resume pointers across every working host. <strong>Purpose:</strong> long, multi-step investigations survive restarts and hand-offs, with a clear audit trail of what was done and where to pick up.</p></div><div class="face back"><div class="back-title">Session Logging</div><pre class="schema"> [session starts]
-         |
-         v
-+----------------+
-| dual-write log |
-| local + vault  |
-+-------+--------+
-        v
-+----------------+
-| milestones +   |
-| resume pointer |
-+-------+--------+
-        v
-   interrupted?
-    |        |
-   yes       no
-    |        |
-    v        v
- [resume    [audit
-  exactly]   trail]</pre></div></div></div>
     </div>
   </section>
 
