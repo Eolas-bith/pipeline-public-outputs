@@ -1188,6 +1188,175 @@
     </div>
   </section>
 
+  <!-- DOMAIN CASE STUDIES -->
+  <section id="case-studies">
+    <div class="section-head">
+      <h2><span class="bar"></span>Domain Case Studies</h2>
+      <p>A single graph ontology — entities as nodes, their interactions as edges — carried across separate threat domains and applied to real investigative datasets. Each domain below marks where that one modelling discipline produced the finding, so the method is evidenced on live material rather than described in the abstract.</p>
+    </div>
+    <div class="card-grid">
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Traffic as Graph</h3><p>Network flow modelled as structure alone, where the shape of who talks to whom separates command-and-control from ordinary traffic even when the payload is encrypted. <strong>Purpose:</strong> classify malicious infrastructure from topology rather than content, so detection holds up when inspection is unavailable.</p><div class="tags"><span class="tag a">Graph Theory</span><span class="tag b">C2</span><span class="tag c">Netflow</span></div></div><div class="face back"><div class="back-title">Traffic as Graph</div><pre class="schema"> [flow records]
+    | tuples
+    v
++------------------+
+| BUILD GRAPH      |
+| nodes = hosts    |
+| edges = sessions |
++--------+---------+
+         |
+         v
++------------------+
+| STRUCTURE ONLY   |
+| degree / cycles  |
+| fan-out shape    |
++--------+---------+
+         |
+         v
++------------------+
+| C2 CANDIDATES    |
++--------+---------+
+         v
+   cluster + verdict</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Deception Telemetry</h3><p>Sensor corpora from deliberately exposed infrastructure, read through attacker command history and client-library fingerprints rather than source addresses. <strong>Purpose:</strong> turn raw sensor noise into a measured account of what adversaries actually attempt, stage by stage.</p><div class="tags"><span class="tag a">Honeynet</span><span class="tag b">Kill Chain</span><span class="tag c">Sensors</span></div></div><div class="face back"><div class="back-title">Deception Telemetry</div><pre class="schema"> [sensor corpus]
+    |
+    v
++----------+ +----------+
+| COMMANDS | | CLIENT   |
+| attacker | | library  |
+| history  | | fingerpr |
++----+-----+ +-----+----+
+     |             |
+     +------+------+
+            v
+  +-------------------+
+  | KILL-CHAIN STAGE  |
+  | mapping           |
+  +---------+---------+
+            v
+    measured attempt
+    profile</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Phishing Infrastructure</h3><p>Kit internals, evasion logic and hosting neighbourhoods clustered into a single operator picture and followed as it changes over time. <strong>Purpose:</strong> attribute scattered pages to one operator, so remediation reaches the infrastructure behind them.</p><div class="tags"><span class="tag a">PhaaS</span><span class="tag b">Passive DNS</span><span class="tag c">Clustering</span></div></div><div class="face back"><div class="back-title">Phishing Infrastructure</div><pre class="schema"> [phishing page]
+    |
+    v
++------------------+
+| KIT INTERNALS    |
+| config variables |
+| evasion logic    |
++--------+---------+
+         |
+         v
++------------------+
+| HOSTING NEIGHBRS |
+| passive DNS      |
++--------+---------+
+         |
+         v
++------------------+
+| OPERATOR CLUSTER |
++--------+---------+
+         v
+   tracked over time</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Exploitation in the Wild</h3><p>Internet-facing exploitation attempts grouped by targeted service, source spread and dropper behaviour, including the checks droppers run to detect analysis environments. <strong>Purpose:</strong> separate a directed campaign from opportunistic background scanning before response effort is committed.</p><div class="tags"><span class="tag a">Exploits</span><span class="tag b">Campaigns</span><span class="tag c">Droppers</span></div></div><div class="face back"><div class="back-title">Exploitation in the Wild</div><pre class="schema"> [exploit attempts]
+    |
+    v
++------------------+
+| GROUP BY SERVICE |
+| + source spread  |
++--------+---------+
+         |
+         v
++------------------+
+| DROPPER BEHAVIOUR|
+| environment      |
+| checks / payload |
++--------+---------+
+         |
+         v
++------------------+
+| COORDINATED  vs  |
+| BACKGROUND NOISE |
++------------------+</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Detection from Traffic Shape</h3><p>Detection primitives derived from the geometry of traffic — scan symmetry, cadence, and the overlap between the rule sets of separate inspection engines. <strong>Purpose:</strong> ground rules in structural invariants, so they keep firing as payloads and tooling change underneath them.</p><div class="tags"><span class="tag a">Symmetry</span><span class="tag b">IDS / IPS</span><span class="tag c">Primitives</span></div></div><div class="face back"><div class="back-title">Detection from Traffic Shape</div><pre class="schema"> [observed traffic]
+    |
+    v
++------------------+
+| GEOMETRY         |
+| symmetry         |
+| rhythm / cadence |
++--------+---------+
+         |
+         v
++------------------+
+| RULE-SET OVERLAP |
+| engine A vs B    |
++--------+---------+
+         |
+         v
++------------------+
+| DETECTION        |
+| PRIMITIVE        |
++------------------+</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Routing-Scale Topology</h3><p>Whole-address-space mapping of network prefixes onto the autonomous systems that announce them, held as one navigable graph. <strong>Purpose:</strong> place any observed address in its routing and operator context while an investigation is still open.</p><div class="tags"><span class="tag a">ASN</span><span class="tag b">IPv4</span><span class="tag c">Topology</span></div></div><div class="face back"><div class="back-title">Routing-Scale Topology</div><pre class="schema"> [address space]
+    |
+    v
++------------------+
+| PREFIX -> ASN    |
+| resolution       |
++--------+---------+
+         |
+         v
++------------------+
+| ROUTING GRAPH    |
+| operator context |
++--------+---------+
+         |
+         v
+   place an address
+   in its context</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Micro-Targeted Campaigns</h3><p>Precision-built influence content read through its audience construction — the framing, claim selection and language choices that reveal which group a message was shaped to move. <strong>Purpose:</strong> recover the intended audience behind a campaign, so a response reaches the community actually being worked on.</p><div class="tags"><span class="tag a">Segmentation</span><span class="tag b">Narrative</span><span class="tag c">Targeting</span></div></div><div class="face back"><div class="back-title">Micro-Targeted Campaigns</div><pre class="schema"> [campaign content]
+    |
+    v
++------------------+
+| SEMANTIC READ    |
+| framing / claims |
+| language choice  |
++--------+---------+
+         |
+         v
++------------------+
+| DEPLOYMENT       |
+| locale + hosting |
++--------+---------+
+         |
+         v
++------------------+
+| AUDIENCE SEGMENT |
+| intended target  |
++------------------+</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Source & Amplification</h3><p>Network-scale mapping of content-sharing ecosystems, separating the small originating set from the much larger layer that recirculates it. <strong>Purpose:</strong> tell origin from echo, so effort concentrates on the nodes that actually seed a narrative.</p><div class="tags"><span class="tag a">Topology</span><span class="tag b">Amplification</span><span class="tag c">Provenance</span></div></div><div class="face back"><div class="back-title">Source & Amplification</div><pre class="schema"> [site corpus]
+    |
+    v
++------------------+
+| CONTENT OVERLAP  |
+| shared items     |
++--------+---------+
+         |
+         v
++------------------+
+| SOURCE CORE      |
+| originating set  |
++--------+---------+
+         |
+         v
++------------------+
+| AMPLIFIER LAYER  |
+| recirculation    |
++--------+---------+
+         v
+   origin vs echo</pre></div></div></div>
+    </div>
+  </section>
+
   <!-- KNOWLEDGE & REFERENCE -->
   <section id="knowledge">
     <div class="section-head">
