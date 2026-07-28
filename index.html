@@ -1354,6 +1354,50 @@
 +--------+---------+
          v
    origin vs echo</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Breach-Corpus Analysis</h3><p>Leaked credential and profile corpora read as structure — a mass dump partitioned by population, and invite trees reconstructed to find the accounts a network grew from. <strong>Purpose:</strong> turn a dumped dataset into an account of how a population was exposed and who stood at its origin.</p><div class="tags"><span class="tag a">Breach Corpora</span><span class="tag b">Invite Trees</span><span class="tag c">Exposure</span></div></div><div class="face back"><div class="back-title">Breach-Corpus Analysis</div><pre class="schema"> [leaked corpus]
+    |
+    v
++------------------+
+| NORMALISE        |
+| parse / dedupe   |
++--------+---------+
+         |
+         v
++------------------+
+| PARTITION        |
+| by population    |
++--------+---------+
+         |
+         v
++------------------+
+| INVITE TREE      |
+| seed accounts    |
++--------+---------+
+         v
+   exposure account</pre></div></div></div>
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Platform Vector Lifecycle</h3><p>One enumeration vector measured on a platform before and after it is closed, so the change in what an outsider could reach is evidenced rather than assumed. <strong>Purpose:</strong> show whether a platform fix actually reduced exposure, and how much reachable data a single vector was worth.</p><div class="tags"><span class="tag a">Longitudinal</span><span class="tag b">Enumeration</span><span class="tag c">Platform Risk</span></div></div><div class="face back"><div class="back-title">Platform Vector Lifecycle</div><pre class="schema"> [vector observed]
+    |
+    v
++------------------+
+| BASELINE         |
+| reachable set    |
+| pre-fix          |
++--------+---------+
+         |
+   [ platform fix ]
+         |
+         v
++------------------+
+| RE-MEASURE       |
+| reachable set    |
+| post-fix         |
++--------+---------+
+         |
+         v
++------------------+
+| DELTA            |
+| exposure change  |
++------------------+</pre></div></div></div>
     </div>
   </section>
 
