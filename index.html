@@ -665,6 +665,31 @@
 +---------+---------+
           v
   [evidenced profile]</pre></div></div></div>
+
+      <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon"></span><h3>Sanctions &amp; Entity Resolution</h3><p>Resolve people and companies against sanctions, politically-exposed-person and company-registry records, using shared identifiers to settle identity where names are ambiguous or transliterated. <strong>Purpose:</strong> a name match stays a candidate until an identifier confirms it, so each claim cites the authority that issued it.</p><div class="tags"><span class="tag a">Entity Resolution</span><span class="tag b">Sanctions / PEP</span><span class="tag c">Ownership Graph</span></div></div><div class="face back"><div class="back-title">Sanctions &amp; Entity Resolution</div><pre class="schema">  [name / company]
+        |
+        v
++------------------+
+| structured match |
+| name . dob . id  |
++--------+---------+
+         v
++------------------+
+| disambiguate     |
+| tax id . reg no  |
++--------+---------+
+         v
++------------------+
+| provenance       |
+| which list, when |
++--------+---------+
+         v
++------------------+
+| ownership graph  |
+| owners . control |
++--------+---------+
+         v
+   [cited finding]</pre></div></div></div>
       <div class="card flip" tabindex="0" role="button" aria-expanded="false"><div class="flip-inner"><div class="face front"><span class="icon">🧠</span><h3>Behavioral Analysis</h3><p>Seven behavioral-analysis methods for profiling threat actors and influence operations: coordinated-behavior detection (CIB), psycholinguistics, forensic analysis, threat assessment, nudge, psychographic, and social. <strong>Purpose:</strong> explain who is behind a campaign, how they think, and how a narrative takes hold and spreads.</p><div class="tags"><span class="tag c">7 methods</span><span class="tag a">CIB</span></div></div><div class="face back"><div class="back-title">Behavioral Analysis</div><pre class="schema">   [campaign / actor data]
              |
              v
